@@ -1,0 +1,10 @@
+Options -Indexes
+
+php_value upload_max_filesize 40M
+php_value post_max_size 42M
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]*)(.*)$ service-handler.php?first=$1&second=$2

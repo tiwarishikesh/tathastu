@@ -1,0 +1,46 @@
+body[theme="rotary"] .home-section-four-way-test-tests h5{
+    color: var(--text_1);
+}
+
+body[theme="rotary"] .home-section-four-way-test-tests h5 span{
+    color: var(--text_yellow_1);
+}
+
+body[theme="rotary"] .home-section-gallery-images-container h3{
+    color: var(--text_1);
+}
+
+body[theme="rotary"] .custom-shape-divider-bottom-1653998029 .shape-fill {
+    fill: #062134;
+}
+
+body[theme="rotary"] .home-black-section-divider{
+    background: rgb(6, 33, 52) !important;
+}
+
+body[theme="rotary"] .homeEventCard h2{
+    color: var(--text_2);
+    font-weight:500;
+    letter-spacing:1px;
+    font-size:25px;
+}
+
+body[theme="rotary"] .homeEventCard h4{
+    color: var(--text_3);
+    letter-spacing:1px;
+    font-size: 21px;
+    font-weight:400;
+}
+
+body[theme="rotary"] .homeEventCard h3{
+    color: var(--text_3);
+    letter-spacing:1px;
+    font-size:21px;
+    font-weight:400;
+    line-height:1.4;
+    margin-top:24px;
+}
+
+body[theme="rotary"] .single-update{
+    border-color:#38435f
+}

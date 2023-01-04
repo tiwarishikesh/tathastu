@@ -1,0 +1,39 @@
+{
+    "ispwa": false,
+    "serviceurl": "/service/",
+    "html_path": "/src/html/",
+    "blog_url": "https://blogs.barazki.in/wp-json/wp/v2/barazki/",
+    "order_status": ["Placed", "Confirmed", "Dispatched", "Delivered", "Cancelled", "Returned", "Packed"],
+    "cdn_url": "http://localhost/cdn.kanr.is/barazki/",
+    "payment_status": ["Pending", "Completed", "Refunded"],
+    "components": {
+        "header": ["body", "Loading headers"],
+        "home": ["appbody", "Loading home"],
+        "menu": ["body", "Loading menu items"],
+        "footer": ["body", "Loading menu items"],
+        "blog": ["appbody", "Loading menu items"],
+        "gallery": ["appbody", "Loading gallery and images"],
+        "account":["appbody","Loading account sections"],
+        "register":["body",""],
+        "templates":["body","Loading templates"],
+        "admin-panel":["account","Loading admin components"],
+        "website-control-panel":["account","Loading admin components"],
+        "network":["account","Loading network components"],
+        "chat":["account","Loading chat components"],
+        "chapter":["account","Loading chapter sections"],
+        "textbasedpages":["body","..."]
+    },
+    "keys": {
+        "Razorpay": {
+            "key_id": "rzp_test_leGW5HZJFyiTf4"
+        }
+    },
+    "membership_status":{
+        "0": "Applied",
+        "1": "Approved Unpaid",
+        "2": "Approved Paid",
+        "4": "Approved Expired",
+        "3": "Paid Unapproved"
+    },
+    "env": "dev"
+}

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="https://www.favicon.cc/logo3d/736866.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sagar Darshan CHS LTD</title>
+</head>
+
+<body auth="false" approved="false" paid="false" theme="rotary">
+    
+    <cover style="display:block;z-index:999999999;background:white;position:fixed;top:0;left:0;width: 100vw;height:100vh;;">
+       <div class="container w-full p-0" style="height:100vh;display:flex;justify-content:center;align-items:center">
+            <div class="container" style="width:max-content">
+                <h4>Loading . . . </h4>
+            </div>
+        </div>
+    </cover>
+    <login>
+        <div class="container w-full p-0">
+            <div class="login-container" style="width:100vw;height:100vh;display:flex;justify-content:center;align-items:center;">
+                <div class="container p-0" style="max-width:450px;">
+                    <div class="container w-full p-0">
+                        <h5 class="login-title">
+                            Log in to<br><span>Sagar Darshan CHS</span><br>to Continue . . .
+                        </h5>
+                    </div>
+                    <div class="container w-full p-0">
+                        <div class="col-sm-12 p-0">
+                            <input data-type="id" type="text" placeholder="Login with" name="loginID" id="loginID">
+                        </div>
+                        <div class="col-sm-12 p-0">
+                            <input data-type="password" type="password" placeholder="Password" name="password" id="password">
+                            <div onclick="togglePasswordField()" class="passwordshowhide"></div>
+                        </div>
+                    </div>
+                    <div class="container w-full p-0">
+                        <div class="new-button" onclick="login()">
+                            Login
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </login>
+    <header>
+        <div class="col-sm-4"></div>
+    </header>
+    <menu class="p-0">
+
+    </menu>
+    <div class="container pdf-viewer p-0" style="position: fixed;width:100vw;height:100vh;left:0;top:0;display: none;z-index:99999;background:white">
+        <div class="container w-full p-0" style="height:75px;">
+            <div class="new-button scaled-down cancel-button" style="display: block;margin: auto;" onclick="pdfviewer.close()">Close</div>
+        </div>
+        <!-- <iframe src="" id="viewer" frameborder="0" style="height: calc(100vh - 75px);width:100%"></iframe> -->
+        <iframe id="viewer" src="/ViewerJS/#../welcome.odt" style="width:100%; height:100%; margin:0px; padding:0px;" allowfullscreen webkitallowfullscreen></iframe>
+    </div>
+    <appbody>
+        <home></home>
+        <blog></blog>
+        <gallery></gallery>
+        <account>
+            <div class="account-left-section">
+                <div class="account-left-section-top">
+                    <tag class="network-only" onclick="route('dashboard')">
+                        <div class="left-menu-single-item" style="pointer-events:none;height: unset;">
+                            <p style="font-size: 16px;font-weight: 600;color: #9f9fff;margin-top: 25px;">Dashboard</p>
+                            <p style="color: #666;font-size: 14px;">Interact with your fellow members</p>
+                        </div>
+                        <div class="left-menu-single-item" linked-to="dashboard" onclick="route('dashboard')">
+                            <h4><i class="far fa-stream"></i> Dashboard</h4>
+                        </div>
+                    </tag>
+                    <tag class="">
+                        <div class="left-menu-single-item" style="pointer-events:none;height: unset;">
+                            <p style="font-size: 16px;font-weight: 600;color: #9f9fff;margin-top: 25px;">SOCIETY</p>
+                            <p style="color: #666;font-size: 14px;">Members, Wings and Committee</p>
+                        </div>
+                        <div class="left-menu-single-item" linked-to="members" onclick="route('members')">
+                            <h4><i class="fad fa-users"></i>Members</h4>
+                        </div>
+                        <tag class="admin-only">
+                            <div class="left-menu-single-item" linked-to="wings" onclick="route('wings')">
+                                <h4><i class="fal fa-building"></i>Wings</h4>
+                            </div>
+                        </tag>
+                        <div class="left-menu-single-item" linked-to="committees" onclick="route('committees')">
+                            <h4><i class="fad fa-users-class"></i>Committee</h4>
+                        </div>
+                        <tag class="admin-only">
+                            <div class="left-menu-single-item" linked-to="documents" onclick="route('documents')">
+                                <h4><i class="far fa-file-alt"></i>Documents</h4>
+                            </div>
+                        </tag>
+                    </tag>
+                </div>
+                <div class="left-menu-single-item" style="position: absolute;bottom: 0;border-top: 1px solid #e3e3e3;border-radius: 0;max-width: 250px;right: 0;background: transparent;" onclick="auth.logout()">
+                    <h4><i class="fas fa-users"></i> Logout</h4>
+                </div>
+            </div>
+            <div class="account-right-section">
+                <div class="right-menu-single-item edit-my-profile" linked-to="dashboard">
+                    <div class="container w-full p-0">
+                        <div class="col-sm-4">
+                            <h3>Project Name</h3>
+                            <h4>Sagar Darshan CHS LTD</h4>
+                            <h3>प्रकल्पाचे नाव</h3>
+                            <h4>सागर दर्शन <!-- सोसायटी  -->सहकारी गृहनिर्माण संस्था</h4>
+                        </div>
+                        <div class="col-sm-8">
+                            <h3>Address</h3>
+                            <h4>Sagar Darshan CHS LTD,<br>Shivaji Udyog Nagar,<br>Near icon hospital Manpada Road<br>
+                                Dombivli East - 421 201</h4>
+                                <br>
+                            <h4>पत्ता</h4>
+                            <h4>सागर दर्शन सहकारी गृहनिर्माण संस्था,<br> शिवाजी उद्योग नगर, <br>आयकॉन हॉस्पिटल जवळ<br> मानपाडा रोड, डोंबिवली ४२१ २०१</h4>
+                        </div>
+                    </div>
+                    <div class="container w-full">
+                        <h3>Documents List</h3>
+                        <div class="container documents-list-members w-full">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="right-menu-single-item" linked-to="security">
+                    <h4>Reset Password</h4>
+                    <br>
+                    <br>
+                    <div class="container" style="max-width: 1400px;float:left;">
+                        <div class="container w-full p-0">
+                            <div class="col-sm-4 p-0">
+                                <div class="col-sm-12 p-0">
+                                    <input data-type="password" type="password" placeholder="Password" name="password" id="passwordNew">
+                                    <div onclick="togglePasswordField()" class="passwordshowhide"></div>
+                                    <p>&nbsp;</p>
+                                </div>
+                                <div class="col-sm-12 p-0">
+                                    <input data-type="password" type="password" placeholder="Confirm Password" name="password" id="passwordConfirm">
+                                    <div onclick="togglePasswordField()" class="passwordshowhide"></div>
+                                    <p>&nbsp;</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="newpasswordstatus" style="color:red;font-size:14px;"></p>
+                        <div class="button glassed" style="width: 250px;float:left" onclick="auth.newPassword()">
+                            <p>RESET PASSWORD</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-menu-single-item" style="padding-top: 0;overflow-y: hidden;" linked-to="members">
+                    <div class="main-admin-view">
+                        <div class="container w-full main-admin-view-title">
+                            <h4 style="max-width:max-content;float:left">Building Members</h4>
+                            <div class="new-button small-button" style="float:right" onclick="addNewMember()">
+                                Add New
+                            </div>
+                        </div>
+                        <div class="container w-full main-admin-view-content">
+                            <div class="container w-full">
+                                <table id="myMembersTable" class="display">
+                                    <thead>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Existing Room</th>
+                                        <!-- <th>New Room</th> -->
+                                        <th></th>
+                                    </thead>
+                                    <tbody>
+                                        
+                                    </tbody>
+                    
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-panel">
+                        <div class="side-panel-upper">
+                            <div class="container w-full please-select-to-edit" style="height: calc(100vh - 70px);display: flex;justify-content: center;align-items: center;">
+                                <div class="container" style="width:fit-content">
+                                    <h4 style="font-weight:500;font-size:24px;text-align:center;line-height: 2;color: #555;padding:0"><i class="fad fa-users" style="color: #222;"></i><br>Please Select a Member<br>to Edit</h4>
+                                    <div class="new-button scaled-down" onclick="addNewMember()" style="display:block;margin:auto;margin-top:10px;">
+                                        Add New
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container w-full p-0 data-to-edit">
+                                <div class="data-to-edit-title" >
+                                    
+                                </div>
+                                <div class="container data-to-edit-body">
+                                    <h2>Name</h2>
+                                    <h3>English</h3>
+                                    <div class="container w-full p-0">
+                                        <div class="col-xs-6 p-l-0">
+                                            <input type="text" id="edit_member_fname" placeholder="First Name">
+                                        </div>
+                                        <div class="col-xs-6 p-r-0">
+                                            <input type="text" id="edit_member_lname" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                    <h3>Marathi</h3>
+                                    <div class="container w-full p-0">
+                                        <div class="col-xs-6 p-l-0">
+                                            <input type="text" id="edit_member_fname_marathi" placeholder="पहिले नाव">
+                                        </div>
+                                        <div class="col-xs-6 p-r-0">
+                                            <input type="text" id="edit_member_lname_marathi" placeholder="आडनाव">
+                                        </div>
+                                    </div>
+                                    <h2>Contact</h2>
+                                    <div class="container w-full p-0">
+                                        <div class="col-xs-6 p-l-0">
+                                            <input type="text" id="edit_member_email" placeholder="Email">
+                                        </div>
+                                        <div class="col-xs-6 p-r-0">
+                                            <input type="number" id="edit_member_phone" placeholder="Number">
+                                        </div>
+                                    </div>
+                                    <h2>Language Preference</h2>
+                                    <div class="container w-full">
+                                        <div class="radio col-xs-6 p-l-0">
+                                            <input type="radio" id="memberpreference_english" name="memberRoles" value="english" checked>
+                                            <label for="memberpreference_english">English</label><br>
+                                        </div>
+                                        <div class="radio col-xs-6 p-r-0">
+                                            <input type="radio" id="memberpreference_marathi" name="memberRoles" value="marathi">
+                                            <label for="memberpreference_marathi">Marathi</label><br>
+                                        </div>
+                                    </div>
+                                    <h2>Wing and Room</h2>
+                                    <h3>Current</h3>
+                                    <div class="container w-full">
+                                        <div class="col-xs-6 p-l-0">
+                                            <select name="" id="member_current_wing" data-placeholder="Select a Wing">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-6 p-r-0">
+                                            <input id="member_current_room"></input>
+                                        </div>
+                                    </div>
+                                    <h3>New</h3>
+                                    <div class="container w-full">
+                                        <div class="col-xs-6 p-l-0">
+                                            <select name="" id="member_new_wing" data-placeholder="Select a Wing">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-6 p-r-0">
+                                            <input id="member_new_room"></input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="side-panel-lower">
+                            <div class="new-button scaled-down save-button" onclick="memberSave()">
+                                Save
+                            </div>
+                            <div class="new-button scaled-down cancel-button" onclick="cancelMemberEdit()">
+                                Cancel
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-menu-single-item" style="padding-top: 0;overflow-y: hidden;" linked-to="wings">
+                    <div class="main-admin-view">
+                        <div class="container w-full main-admin-view-title">
+                            <h4 style="max-width:max-content;float:left">Wings</h4>
+                            <div class="new-button small-button" style="float:right" onclick="addNewWing()">
+                                Add New
+                            </div>
+                        </div>
+                        <div class="container w-full main-admin-view-content" >
+                            <div class="container w-full">
+                                <table id="myWingsTable" class="display">
+                                    <thead>
+                                        <th>Name</th>
+                                        <th>Type</th>
+                                        <th>Members Count</th>
+                                        <th></th>
+                                    </thead>
+                                    <tbody>
+                                        
+                                    </tbody>
+                    
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-panel">
+                        <div class="side-panel-upper">
+                            <div class="container w-full please-select-to-edit" style="height: calc(100vh - 70px);display: flex;justify-content: center;align-items: center;">
+                                <div class="container" style="width:fit-content">
+                                    <div class="container" style="width:fit-content">
+                                        <h4 style="font-weight:500;font-size:24px;text-align:center;line-height: 2;color: #555;padding:0"><i class="fad fa-building" style="color: #222;"></i><br>
+                                            Please Select a Wing<br>to Edit</h4>
+                                        <div class="new-button scaled-down" onclick="addNewWing()" style="display:block;margin:auto;margin-top:10px;">
+                                            Add New
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container data-to-edit">
+                                <div class="data-to-edit-title" >
+                                    
+                                </div>
+                                <div class="container data-to-edit-body">
+                                    <h2>Wing Name</h2>
+                                    <div class="container w-full p-0">
+                                        <input type="text" id="edit_wing_name" placeholder="Wing Name">
+                                    </div>
+                                    <h2>Wing Type</h2>
+                                    <div class="container w-full p-0">
+                                        <div class="container w-full">
+                                            <div class="radio col-xs-6 p-l-0">
+                                                <input type="radio" id="edit_wing_old" name="edit_wing_type" value="old" checked>
+                                                <label for="edit_wing_old">Old</label><br>
+                                            </div>
+                                            <div class="radio col-xs-6 p-r-0">
+                                                <input type="radio" id="edit_wing_new" name="edit_wing_type" value="new" checked>
+                                                <label for="edit_wing_new">New</label><br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="side-panel-lower">
+                            <div class="new-button scaled-down save-button" onclick="wingSave()">
+                                Save
+                            </div>
+                            <div class="new-button scaled-down cancel-button" onclick="cancelWingEdit()">
+                                Cancel
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-menu-single-item" style="padding-top: 0;overflow-y: hidden;" linked-to="committees">
+                    <div class="main-admin-view">
+                        <div class="container w-full main-admin-view-title">
+                            <h4 style="max-width:max-content;float:left">Committes</h4>
+                            <div class="new-button small-button" style="float:right" onclick="addNewCommitee()">
+                                Add New
+                            </div>
+                        </div>
+                        <div class="container w-full main-admin-view-content">
+                            <div class="container w-full">
+                                <table id="myCommiteeTable" class="display">
+                                    <thead>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th>Members</th>
+                                        <th></th>
+                                    </thead>
+                                    <tbody>
+                                        
+                                    </tbody>
+                    
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-panel">
+                        <div class="side-panel-upper">
+                            <div class="container w-full please-select-to-edit" style="height: calc(100vh - 70px);display: flex;justify-content: center;align-items: center;">
+                                <div class="container" style="width:fit-content">
+                                    <h4 style="font-weight:500;font-size:24px;text-align:center;line-height: 2;color: #555;padding:0"><i class="fad fa-users-class" style="color: #222;"></i><br>
+                                        Please Select a Commitee<br>to Edit</h4>
+                                    <div class="new-button scaled-down" onclick="addNewComitee()" style="display:block;margin:auto;margin-top:10px;">
+                                        Add New
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container data-to-edit">
+                                <div class="data-to-edit-title" >
+                                    
+                                </div>
+                                <div class="container data-to-edit-body">
+                                    <h2>About Commitee</h2>
+                                    <h3>English</h3>
+                                    <div class="col-sm-12 p-0">
+                                        <input type="text" id="edit_commitee_name" placeholder="Commitee Name">
+                                    </div>
+                                    <div class="col-sm-12 p-0">
+                                        <textarea name="" id="edit_commitee_description" rows="10" placeholder="Commitee Description"></textarea>
+                                    </div>
+                                    <h3>मराठी</h3>
+                                    <div class="col-sm-12 p-0">
+                                        <input type="text" name="" placeholder="समितीचे नाव" id="">
+                                    </div>
+                                    <div class="col-sm-12 p-0">
+                                        <textarea name="" id="" rows="10" placeholder="समितीचे वर्णन"></textarea>
+                                    </div>
+                                    <h2>Members</h2>
+                                    <div class="container-w-full p-0">
+                                        <select name="" id="edit_commitee_members_drop" multiple="multiple" style="width:100%">
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="side-panel-lower">
+                            <div class="new-button scaled-down save-button" onclick="commiteeSave()">
+                                Save
+                            </div>
+                            <div class="new-button scaled-down cancel-button" onclick="cancelCommiteeEdit()">
+                                Cancel
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-menu-single-item" style="padding-top: 0;overflow-y: hidden;" linked-to="documents">
+                    <div class="main-admin-view">
+                        <div class="container w-full main-admin-view-title">
+                            <h4 style="max-width:max-content;float:left">Documents</h4>
+                            <div class="new-button small-button" style="float:right" onclick="documents.add()">
+                                Add New
+                            </div>
+                        </div>
+                        <div class="container w-full main-admin-view-content w-full" >
+                            <div class="container w-full documents-list">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-panel">
+                        <div class="side-panel-upper">
+                            <div class="container w-full please-select-to-edit" style="height: calc(100vh - 70px);display: flex;justify-content: center;align-items: center;display:none;">
+                                <div class="container" style="width:fit-content">
+                                    <div class="container" style="width:fit-content">
+                                        <h4 style="font-weight:500;font-size:24px;text-align:center;line-height: 2;color: #555;padding:0"><i class="fad fa-building" style="color: #222;"></i><br>
+                                            Please Select a Document<br>to Edit</h4>
+                                        <div class="new-button scaled-down" onclick="documents.add()" style="display:block;margin:auto;margin-top:10px;">
+                                            Add New
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container data-to-edit">
+                                <div class="data-to-edit-title" >
+                                    
+                                </div>
+                                <div class="container data-to-edit-body">
+                                    <h2>Document Name</h2>
+                                    <div class="container w-full p-0">
+                                        <input type="text" id="edit_document_name" placeholder="Document Name">
+                                    </div>
+                                    <h2>About the document</h2>
+                                    <div class="container w-full p-0">
+                                        <textarea name="" id="edit_document_description" style="height:unset" rows="10" placeholder="Small description of the document being uploaded"></textarea>
+                                    </div>
+                                    <h2>Upload your document here</h2>
+                                    <div class="container document_upload_area w-full p-0">
+                                        <h4 class="file_chosen_state">Choose File or Drag your file over this</h4>
+                                        <input type="file" id="file-selector">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="side-panel-lower">
+                            <div class="new-button scaled-down save-button" onclick="documents.save()">
+                                Save
+                            </div>
+                            <div class="new-button scaled-down cancel-button" onclick="cancelWingEdit()">
+                                Cancel
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </account>
+        <calendar>
+            <div id="demo-full-event-customization" style="height: calc(100vh - 70px);"></div>
+            <div id="event-popup"  class="container w-full p-0" style="position: fixed;top:0;left:-100vw;width:100vw;height:100vh;transition: 0.2s;z-index:999;">
+                <div class="container w-full p-0" style="width:100vw;height:100vh;position:relative">
+                    <div class="container w-full p-0" style="width: 100vw;height:100vh;position:absolute;background: transparent;" onclick="$('#event-popup').css('left','-100vw')">
+                    </div>
+                    <div class="container w-full p-0" style="width:100vw;height:100vh;position:absolute;width:50vw;height:50vh;left:25vw;top:20vh;background:#eeed;backdrop-filter: blur(4px);border-radius:5px;padding:15px;">
+                        <h2></h2>
+                        <p class="event-popup-description"></p>
+                        <p class="event_date"></p>
+                        <p class="event_time"></p>
+                        <div class="event-popup-online">
+                            <div class="edit-popup-details"><span>Meeting Link</span><span></div>
+                            <div class="edit-popup-details"><span>Password</span><span></span></div>
+                        </div>
+                        <div class="event-popup-offline">
+                            <div class="edit-popup-details"><span>Venue Name</span><span></span></div>
+                            <div class="edit-popup-details"><span>Address</span><span></span></div>
+                            <div onclick="window.open($(this).find('span:eq(1)').text, '_blank')" style="cursor: pointer;" class="edit-popup-details"><span>Map</span><span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </calendar>
+        <faq style="width: 100vw; height:100vh;padding-top: 100px;">
+            <div class="container">
+            <h1>FAQs</h1>
+            </div>
+            <div class="container">
+
+            </div>
+        </faq>
+    </appbody>
+    <templates style="display: none;"></templates>
+    <textbasedpages></textbasedpages>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/assets/fontawesome/css/all.css">
+<!-- <link rel="stylesheet" href="/assets/fontawesome-6/css/all.css"> -->
+<link rel="stylesheet" href="/assets/neue-haas-grotesk-pro/neue-haas-grotesk-pro.css">
+
+<link rel="stylesheet" href="/src/lightgallery/css/lightgallery-bundle.min.css">
+<link rel="stylesheet" href="/src/justifiedGallery/justifiedGallery.min.css">
+
+<link rel="stylesheet" href="/src/css/html5upload.css">
+<link href="/src/css/quill.snow.css" rel="stylesheet">
+<link rel="stylesheet" href="/src/css/date-time.css">
+<link rel="stylesheet" href="/src/css/snackbar.css">
+<link rel="stylesheet" href="/src/css/intlTelInput.css" />
+<!-- <link rel="stylesheet" href="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/css/intlTelInput.css" /> -->
+<link rel="stylesheet" href="https://www.kanris.biz/cdn/datatable/css/datatable.css">
+<link rel="stylesheet" href="/src/css/mobiscroll.javascript.min.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/css/uikit.min.css" /> -->
+<link rel="stylesheet" href="/src/css/hamburger.css">
+<link rel="stylesheet" href="/src/css/select2.css">
+<link rel="stylesheet" href="/src/css/style.css">
+<link rel="stylesheet" href="/src/css/network.css">
+<link rel="stylesheet" href="/src/css/chat.css">
+<link rel="stylesheet" href="/src/css/rotary.css">
+<!-- <script type="text/javascript" charset="utf8" src="https://www.kanris.biz/cdn/lib/js/dataTable.js"></script> -->
+<script type="text/javascript" charset="utf8" src="/src/js/dataTable.js"></script>
+<script src="/src/lightgallery/lightgallery.umd.js"></script>
+<script src="/src/lightgallery/plugins/zoom/lg-zoom.umd.js"></script>
+<script src="/src/lightgallery/plugins/thumbnail/lg-thumbnail.umd.js"></script>
+<script src="/src/lightgallery/plugins/share/lg-share.umd.js"></script>
+<script src="/src/lightgallery/plugins/rotate/lg-rotate.umd.js"></script>
+<script src="/src/lightgallery/plugins/autoplay/lg-autoplay.umd.js"></script>
+<script src="/src/lightgallery/plugins/fullscreen/lg-fullscreen.umd.js"></script>
+<script src="/src/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="/src/js/snackbar.js"></script>
+<script src="/src/js/html5upload.js"></script>
+<script type="text/javascript" src="/src/js//moment-with-locales.min.js"></script>
+<script src="/src/js/moment.js"></script>
+<script src="/src/js/moment-with-locales.js"></script>
+<script src="/src/js/bootstrap-datetimepicker.js"></script>
+<script src="/src/js/date-timepicker.js"></script>
+<script src="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+<!-- <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script> -->
+<script src="/src/js/select2.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+<script src="/src/js/jsdiff.js"></script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQrwBmds0yPtfIFAMpu1LuyBrLxX8-_5s"></script>
+<script src="/src/js/mobiscroll.javascript.min.js"></script>
+<!-- <script src="//editor.unlayer.com/embed.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/js/uikit-icons.min.js"></script>
+<script src="/src/js/vanillaPicker.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+<!-- <script src="https://editor.unlayer.com/embed.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.1.81/pdf.min.js" integrity="sha512-RV+l/3iMDTmIt64ztJmriqLRZl2IwGHcG+655gFxUa20Uq9GljEsY3wibq5BZkGzRlMbYFHUPelVQvWvZxP38w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/src/js/custom.js"></script>
+<style>
+    @media screen and (min-width:600px){
+        .cal-header-picker{
+            display: none;
+        }
+    }
+
+    /* .mbsc-calendar-cell div:not(.mbsc-calendar-cell-inner){
+        display: none;
+        visibility: hidden;
+    }  */
+</style>
+<script>
+    /* const editor = unlayer.init({
+        id: 'editor-container',
+        projectId: 95494,
+        displayMode: 'email'
+    }) */
+ /*  unlayer.init({
+    id: 'HTMLeditor',
+    projectId: 95494,
+    templateId: "[TEMPLATE-ID]"
+  }) */
+</script>
+
+</html>
