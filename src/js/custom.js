@@ -98,115 +98,16 @@ function logUserIn(user) {
         setInterval(() => {
             checkUrl();
         }, 100);
-    
-        setTimeout(() => {
-            const fileSelector = document.getElementById('file-selector');
-            fileSelector.addEventListener('change', (event) => {
-                const fileList = event.target.files;
-                var fr = new FileReader();                
-                    /* console.log(fr.readAsText(fileList[0])) */
-                    file = fileList;
-                    if(file[0]){
-                        $(".file_chosen_state").text(file[0].name);
-                        $(".file_chosen_state").attr("type",file[0].type);
-                    }else{
-                        $(".file_chosen_state").text("Choose File or Drag your file over this");
-                        $(".file_chosen_state").attr("type",null);
-                    }
-            });
-
-            const fileSelectorTwo = document.getElementById('consent-one');
-            fileSelectorTwo.addEventListener('change', (event) => {
-                const fileList = event.target.files;
-                var fr = new FileReader();                
-                    /* console.log(fr.readAsText(fileList[0])) */
-                    
-                    file_one = fileList;
-                    if(file_one[0]){
-                        let formData = new FormData();
-                        formData.append("file",true);
-                        formData.append("pdf",file_one[0]);
-                        $(".file_chosen_state:eq(0)").text(file_one[0].name);
-                        $(".file_chosen_state:eq(0)").attr("type",file_one[0].type);
-                        $.ajax({
-                            type: "POST",
-                            url: '/service/upload-doc-one',
-                            data: formData,
-                            dataType: 'json',
-                            contentType: false,
-                            processData: false,
-                            success: function (response) {
-                                showsnackbar('Uploading Document');
-                                
-                                response.id = $(".data-to-edit-title:eq(0)").attr('current-member');
-                                xhttp.post("document-one",response).then(()=>{
-                                    showsnackbar('Document Name Updated');
-                                    refreshData();
-                                })
-                            },
-                            error: function (error) {
-                                console.log('error');
-                            }
-                        });
-                    }else{
-                        $(".file_chosen_state:eq(0)").text("Choose File or Drag your file over this");
-                        $(".file_chosen_state:eq(0)").attr("type",null);
-                    }
-            });
-
-            const fileSelectorThree = document.getElementById('consent-two');
-            fileSelectorThree.addEventListener('change', (event) => {
-                const fileList = event.target.files;
-                var fr = new FileReader();                
-                    /* console.log(fr.readAsText(fileList[0])) */
-                    
-                    file_two = fileList;
-                    if(file_one[0]){
-                        let formData = new FormData();
-                        formData.append("file",true);
-                        formData.append("pdf",file_two[0]);
-                        $(".file_chosen_state:eq(1)").text(file_two[0].name);
-                        $(".file_chosen_state:eq(1)").attr("type",file_two[0].type);
-                        $.ajax({
-                            type: "POST",
-                            url: '/service/upload-doc-one',
-                            data: formData,
-                            dataType: 'json',
-                            contentType: false,
-                            processData: false,
-                            success: function (response) {
-                                showsnackbar('Uploading Document');
-                                
-                                response.id = $(".data-to-edit-title:eq(1)").attr('current-member');
-                                xhttp.post("document-two",response).then(()=>{
-                                    showsnackbar('Document Name Updated');
-                                    refreshData();
-                                })
-                            },
-                            error: function (error) {
-                                console.log('error');
-                            }
-                        });
-                    }else{
-                        $(".file_chosen_state:eq(1)").text("Choose File or Drag your file over this");
-                        $(".file_chosen_state:eq(1)").attr("type",null);
-                    }
-            });
-            $('body').attr('role',user.role);
-            $('header div').text('Hello, '+ user.fname);
-            $('cover').remove();
-            if(path.parts[0] == '' || path.parts[0] == 'login'){
-                route('dashboard');
-            }
-        }, 500);
     })
 }
+
 function refreshData() {
     xhttp.get('init').then((response)=>{
         data = response;
         populate_data();
     });
 }
+
 function populate_data() {
     $("#myMembersTable").DataTable().destroy();
     $("#myWingsTable").DataTable().destroy();
@@ -564,15 +465,82 @@ let pdfviewer = {
     }
 }
 
+let home = {
+    init: function () {
+        let t = $('home').height() / $(window).height();
+        $(".backgrounddecorations").css('height',$('home').css('height'));
+        for (let index = 0; index < 5+1; index++) {
+            $(".backgrounddecorations").append(`<img class="background-decoration-images" src="assets/background-images/circle.png" style="width:35vw;top:${(index*100)-25}vh;${index % 2 == 0 ? 'right:-11vw;': 'left:-20vw;'}">`);
+            $(".backgrounddecorations").append(`<img class="background-decoration-images" src="assets/background-images/${index%2==0 ? 'sun':'star'}.png" style="width:12vw;top:${(index*100)+10}vh;${index % 2 == 0 ? 'left:15vw;': 'right:15vw;'}">`);
+        }
+        Array.from($(".background-decoration-images")).forEach((element, index)=>{
+            if(index > 1){
+                gsap.to(element, {
+                yPercent: 50,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: element,
+                    // start: "top bottom", // the default values
+                    // end: "bottom top",
+                    scrub: true
+                    }, 
+                });
+            }
+        })
+        gsap.to(".home-understand-out-process",{
+            scrollTrigger:{
+                trigger: ".home-understand-out-process",
+                pin:".steps-images-wrapper",
+                start:"top top",
+                end: "bottom bottom",
+                scrub: true
+            },
+        });
+        $(".steps-single-image-wrapper img").css('width',$(".steps-single-image-wrapper").parent().css('width'));
+        $('.steps-single-image-wrapper').css('margin-top',($(window).height() - $('.steps-single-image-wrapper').height())/3);
+        $(".steps-single-image-wrapper").css('width',0);
+        $(".steps-single-image-wrapper:eq(0)").css('width','100%');
+        $(".steps-single-image-wrapper:eq(0)").css('opacity','00');
+        const t6 = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".home-understand-out-process",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 4,
+                toggleActions: "play reverse play reverse"
+            }
+        });
+        t6
+            .to('.step-1-image', { 
+                width:'100%',
+                opacity:1,
+                stagger: 0.5,
+                ease: Power3.inOut 
+            }).to('.step-2-image', { 
+                width:'100%',
+                stagger: 0.5,
+                ease: Power3.inOut 
+            }).to('.step-3-image', { 
+                width:'100%',
+                stagger: 0.5,
+                ease: Power3.inOut 
+            }).to('.step-4-image', { 
+                width:'100%',
+                stagger: 0.5,
+                ease: Power3.inOut 
+            });
+
+    }
+}
+
 function checkUrl() {
     if (window.location.href.toLowerCase() == path.href) {
         return false;
     }
     parseURL().then(() => {
-        $('.left-menu-single-item').removeClass('active');
-        $(`.left-menu-single-item[linked-to="${path.parts[0]}"]`).addClass('active');
-        $(`.right-menu-single-item:not([linked-to="${path.parts[0]}"])`).slideUp();
-        $(`.right-menu-single-item[linked-to="${path.parts[0]}"]`).slideDown();
+        if(path.parts[0] == "home"){
+            home.init();
+        }
     })
 }
 

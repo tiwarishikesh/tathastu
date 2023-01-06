@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Pinyon+Script&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&family=Calligraffitti&family=Niconne&family=Romanesco&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Calligraffitti&family=Niconne&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Romanesco&family=Russo+One&display=swap');
 /* @import url('https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro'); */
 
 @font-face {font-family: "SaolDisplay-Regular";
@@ -10,7 +10,13 @@
     url("4c4c08af466e9ad071b6d69cf44093df.ttf") format("truetype"), /* chromeÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â£ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂfirefoxÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â£ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂoperaÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â£ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂSafari, Android, iOS 4.2+*/
     url("4c4c08af466e9ad071b6d69cf44093df.svg#SaolDisplay-Regular") format("svg"); /* iOS 4.1- */
 }
-
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
 :root{
     --text_1 : #2c4062;
     --text_2 : #eef2f9;
@@ -85,6 +91,10 @@ img{
     width: 100%;
 }
 
+.mh-100{
+    min-height: 100vh;
+}
+
 .p-0{
     padding:0;
 }
@@ -147,6 +157,12 @@ register{
     display:none;
     padding-top:100px;
     overflow-y: scroll;
+}
+
+.centerInside{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -516,7 +532,7 @@ header{
     top:0;
     left:0;
     backdrop-filter: blur(5px);
-    border-bottom: 1px solid #707de3;
+    border-bottom: 1px solid #ba8b6f;
     z-index: 999;
     box-shadow: 0px 0px 1px 2px #707de322;
 }
@@ -663,6 +679,24 @@ appbody{
     font-size: 75px !important;
 line-height: 1 !important;padding-left: 0 !important;margin-bottom: 150px;}
 
+.backgrounddecorationswrapper{
+    position: absolute;
+    width:100vw;
+    left:0;
+    top:0;
+    pointer-events: none;
+}
+.backgrounddecorations{
+    position: 'relative';
+    width:100vw;
+    pointer-events: none;
+}
+
+.background-decoration-images{
+    position: absolute;
+    opacity: 0.4;
+}
+
 /* 
 
 db   db  .d88b.  .88b  d88. d88888b 
@@ -674,8 +708,107 @@ YP   YP  `Y88P'  YP  YP  YP Y88888P
                                     
 */
 
-home{
+home {
+    background: linear-gradient(-45deg, #f0e8db, #f0e8db, #f0e8db, #f0e8db);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    background: #e9e3dd;
+}
 
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.home-understand-out-process h3{
+    font-size:60px;
+    color:#4b3629;
+    font-family: 'Neue Haas Grotesk Display Pro','sans-serif';
+    text-align: center;
+}
+
+.steps-images-wrapper{
+    position:relative;
+}
+
+.steps-single-image-wrapper{
+    position:absolute;
+    left:0;
+    top:0;
+    overflow:hidden;
+    width:100%;
+}
+
+.steps-single-image-wrapper img{
+    
+}
+
+.single-step-text:nth-child(1){
+    margin-top:50vh;
+}
+
+.single-step-text:last-child{
+    margin-bottom:50vh;
+}
+
+.single-step-text{
+    padding-left:40px;
+    padding-top:25vh;
+}
+
+.single-step-text h4{
+    font-size:60px;
+    color:#4b3629;
+}
+
+.single-step-text p{
+    font-size:36px;
+    font-weight:500;
+    color:#333;
+}
+
+.book-image-container{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-download-ebook .col-sm-6 img{
+    transform:scale(1.5)
+}
+
+.home-download-ebook h3{
+    font-size: 96px;
+    font-family: 'Playfair Display', serif;
+    font-family: 'Cabin', sans-serif;
+    color: #362216;
+    margin-top: 0;
+}
+
+.home-download-ebook h5{
+    font-size: 24px;
+}
+
+.home-download-ebook input{
+    border: none;
+    border-bottom: 2px solid #362216;
+    border-radius: 0;
+    background: transparent;
+    font-size: 48px;
+    height: auto;
+    color: #362216;
+    line-height: 2;
+    margin-bottom: 48px;
+    outline:none;
+    width: 100%;
 }
 
 .landing-banner{
@@ -1957,6 +2090,8 @@ body[path_part_0="faq"] faq{
     transition:0.2s;
     position:relative;
     display:inline-block;
+    background: #fffbf5;
+    border: 1px solid #b4806166;
 }
 
 .new-button:hover{
