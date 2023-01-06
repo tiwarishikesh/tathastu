@@ -467,6 +467,37 @@ let pdfviewer = {
 
 let home = {
     init: function () {
+        $("#animated-thumbnails-gallery")
+        .justifiedGallery({
+            captions: false,
+            lastRow: "hide",
+            rowHeight: 250,
+            margins: 20
+        })
+        .on("jg.complete", function() {
+            lightGallery(document.getElementById("animated-thumbnails-gallery"), {
+                autoplayFirstVideo: false,
+                pager: false,
+                galleryId: "nature",
+                flipHorizontal: false,
+                flipVertical: false,
+                rotateLeft: false,
+                plugins: [
+                    lgZoom,
+                    lgThumbnail,
+                    lgShare,
+                    lgRotate,
+                    lgFullscreen,
+                    lgAutoplay
+                ],
+                mobileSettings: {
+                    controls: false,
+                    showCloseIcon: false,
+                    download: false,
+                    rotate: false
+                }
+            });
+        });
         let t = $('home').height() / $(window).height();
         $(".backgrounddecorations").css('height',$('home').css('height'));
         for (let index = 0; index < 5+1; index++) {
